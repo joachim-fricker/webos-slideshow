@@ -1,0 +1,10 @@
+{
+    "vendor": "Joachim Fricker",
+    "largeIcon": "largeIcon.png",
+    "icon": "icon.png",
+    "main": "index.html",
+    "id": "de.jfricker.slideshow",
+    "title": "WebOS SlideShow",
+    "type": "web",
+    "version": "0.0.1"
+}
