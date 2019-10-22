@@ -2,6 +2,12 @@
 <html>
 
 <head>
+
+<!-- 
+Please note that the whole program is currently only intended to run on the TV which i have. So i have hardcoded the screen dimensions.
+However i expect that this will be fine for all modern LG TV's. Lets see whether i will get some feedback when I ever will finish this.
+ 
+ -->
 <style type="text/css">
 body {
 	background-color: #eaeaea;
@@ -45,9 +51,24 @@ body {
 		rgba(0, 0, 0, .2), 40px 35px 70px -10px rgba(0, 0, 0, .5), -20px -20px
 		100px -10px rgba(51, 51, 51, .2);
 }
+
+.text-block {
+	position: absolute;
+	bottom: 100px;
+	text-align: center;
+	background-color: #FFFAFA;
+	opacity: 0.6;
+	color:black;
+	padding-left: 30px;
+	padding-right: 30px;
+	left: 200px;
+	font-size: 20px;
+	
+}
 </style>
 <script src="webOSTVjs-1.1.0/webOSTV.js" charset="utf-8"></script>
 <script src="webOSTVjs-1.1.0/webOSTV-dev.js" charset="utf-8"></script>
+<script src="asset/jquery-3.4.1.min.js" charset="utf-8"></script>
 <script type="text/javascript">
 	//sample code for calling LS2 API
 	var lunaReq = webOS.service.request("luna://com.palm.systemservice", {
@@ -78,6 +99,17 @@ body {
 		function showImage() {
 			var image = document.getElementById('image');
 			image.src = "testImages/" + images[current];
+			
+			if (current == 2 || current == 3) {
+				$(".text-block").hide();
+			} else {
+				var w = $(".text-block").width();
+				console.log("Width of text is",w);
+				console.log("Width of text is",w);
+				$(".text-block").css ("left",(1740-w)/2);
+				$(".text-block").show();
+				
+			}
 
 		}
 		function doPrevious() {
@@ -126,9 +158,12 @@ body {
 		});
 	</script>
 
-	<figure class="gold  frame">
-		<img id="image" src="testImages/test0.jpg" width="1700" height="900" />
-
+	<figure class="black  frame">
+	
+		<img id="image" src="testImages/test0.jpg" width="1740" height="940" />
+		<div class="text-block">
+			<p>We now have a place holder for adding comments to a picture</p>
+		</div>
 	</figure>
 
 </body>
