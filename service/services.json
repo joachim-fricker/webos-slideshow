@@ -1,0 +1,23 @@
+{
+    "id": "de.jfricker.slideshow.service",
+    "description": "Service which later access the UBS drive for reading the available slideshows",
+    "services": [
+        {
+            "name": "de.jfricker.slideshow.service",
+            "description": "Service which later access the UBS drive for reading the available slideshows",
+            "commands": [
+                {
+                    "name": "dirList",
+                    "description": "read the directory",
+                    "public": true
+                },
+                {
+                    "name": "helloWorld",
+                    "description": "Say hello",
+                    "public": true
+                }
+                
+            ]
+        }
+    ]
+}

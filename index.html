@@ -71,6 +71,8 @@ body {
 <script src="asset/jquery-3.4.1.min.js" charset="utf-8"></script>
 <script type="text/javascript">
 	//sample code for calling LS2 API
+	
+	/*
 	var lunaReq = webOS.service.request("luna://com.palm.systemservice", {
 		method : "clock/getTime",
 		parameters : {},
@@ -80,6 +82,19 @@ body {
 		onFailure : function(args) {
 			console.log("Got an error");
 		}
+		
+		
+		*/
+		var lunaReq = webOS.service.request("luna://de.jfricker.slideshow.service", {
+			method : "helloWorld",
+			parameters : {},
+			onSuccess : function(args) {
+				console.log("Got an result",args);
+			},
+			onFailure : function(args) {
+				console.log("Got an error");
+			}
+		
 	});
 </script>
 

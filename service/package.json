@@ -1,0 +1,11 @@
+{
+    "name": "de.jfricker.slideshow.service",
+    "version": "1.0.0",
+    "description": "Slideshow  service",
+    "main": "service.js",
+    "scripts": {
+        "test": "echo \"Error: no test specified\" && exit 1"
+    },
+    "author": "Jeff (Joachim Fricker)",
+    "license": "BSD"
+}
