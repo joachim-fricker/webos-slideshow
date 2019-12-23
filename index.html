@@ -4,7 +4,7 @@
 <head>
 
 <!-- 
-Please note that the whole program is currently only intended to run on the TV which i have. So i have hardcoded the screen dimensions.
+Please note that the whole program is currently only intended to run on the TV which I own. So i have hardcoded the screen dimensions.
 However i expect that this will be fine for all modern LG TV's. Lets see whether i will get some feedback when I ever will finish this.
  
  -->
@@ -69,6 +69,7 @@ body {
 <script src="webOSTVjs-1.1.0/webOSTV.js" charset="utf-8"></script>
 <script src="webOSTVjs-1.1.0/webOSTV-dev.js" charset="utf-8"></script>
 <script src="asset/jquery-3.4.1.min.js" charset="utf-8"></script>
+<script src="frontend.js" charset="utf-8"></script>
 <script type="text/javascript">
 	//sample code for calling LS2 API
 	
@@ -86,7 +87,7 @@ body {
 		
 		*/
 		var lunaReq = webOS.service.request("luna://de.jfricker.slideshow.service", {
-			method : "helloWorld",
+			method : "dirList",
 			parameters : {},
 			onSuccess : function(args) {
 				console.log("Got an result",args);
@@ -102,76 +103,7 @@ body {
 
 </head>
 <body>
-	<script>
-		var images = [ "test0.jpg", "test1.jpg", "test2.jpg", "test3.jpg",
-				"test4.jpg", "test5.jpg" ];
-		var current = 0;
-		var LEFT = 37;
-		var RIGHT = 39;
-		var UP = 38;
-		var DOWN = 40;
 
-		function showImage() {
-			var image = document.getElementById('image');
-			image.src = "testImages/" + images[current];
-			
-			if (current == 2 || current == 3) {
-				$(".text-block").hide();
-			} else {
-				var w = $(".text-block").width();
-				console.log("Width of text is",w);
-				console.log("Width of text is",w);
-				$(".text-block").css ("left",(1740-w)/2);
-				$(".text-block").show();
-				
-			}
-
-		}
-		function doPrevious() {
-			if (current == 0) {
-				return;
-			}
-			current--;
-			showImage();
-
-		}
-
-		function doNext() {
-			if (current == images.length - 1) {
-				return;
-			}
-			current++;
-			showImage();
-
-		}
-
-		function doFirst() {
-			current = 0;
-			showImage();
-		}
-
-		function doLast() {
-			current = images.length - 1;
-			showImage();
-		}
-
-		document.addEventListener("keydown", function(inEvent) {
-			switch (inEvent.keyCode) {
-			case LEFT:
-				doPrevious();
-				break;
-			case RIGHT:
-				doNext();
-				break;
-			case UP:
-				doFirst();
-				break;
-			case DOWN:
-				doLast();
-				break;
-			}
-		});
-	</script>
 
 	<figure class="black  frame">
 	
