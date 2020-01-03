@@ -59,8 +59,8 @@ function callDirList() {
 		parameters: {},
 		onSuccess: function (args) {
 			console.log("Got an dirList result", args);
-			for (var i=0; i < args.Response.length;i++) {
-				console.log ("Entry:",args.Response[i]);
+			for (var i=0; i < args.list.length;i++) {
+				console.log ("Entry:",args.list[i]);
 			}
 		},
 		onFailure: function (args) {

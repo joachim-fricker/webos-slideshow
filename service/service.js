@@ -36,16 +36,14 @@ var dirList = function (dir, result, level) {
         file = "" + dir + file;
         var stat = fs.statSync(file);
         
-      /*
-        if (stat && stat.isDirectory() && level ==0) {
-        
-            dirList(file, result, level + 1);
-        } else {
-        
-            result.push(file);
-        }
-      	*/
         result.push(file);
+        
+        if (stat && stat.isDirectory()) {
+        
+            dirList(file +"/", result, level + 1);
+        } 
+      
+       
     
 	
 	
@@ -54,6 +52,10 @@ var dirList = function (dir, result, level) {
 }
 
 
+/*
+ * with try and error i discovered that the following directories do not work
+ *   /bin /proc /tmp /usr /var
+ */
 
 
 service.register("dirList", function (message) {
@@ -61,12 +63,13 @@ service.register("dirList", function (message) {
     console.log("In dirList");
 
     var ret = [];
-    dirList("/", ret, 0);
+    dirList("/media/", ret, 0);
+   // dirList("/etc/", ret, 0);
+   
     
 
 
     message.respond({
-        Response: ret,
-        foo: "Bar"
+        list: ret
     });
 });
